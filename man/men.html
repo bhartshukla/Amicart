@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Men's Collection</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        nav {
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+                rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            z-index: 1;
+        }
+
+        nav .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .logo img {
+            height: 25px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        nav .logo h1 {
+            font-size: 1.1rem;
+
+
+
+
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            font-size: 95%;
+            font-weight: 400;
+            padding: 4px 8px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #cfc2c2;
+            font-weight: 600;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger .line {
+            width: 25px;
+            height: 1px;
+            background-color: #1f1f1f;
+            display: block;
+            margin: 7px auto;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger-active {
+            transition: all 0.3s ease-in-out;
+            transition-delay: 0.6s;
+            transform: rotate(45deg);
+        }
+
+        .hamburger-active .line:nth-child(2) {
+            width: 0px;
+        }
+
+        .hamburger-active .line:nth-child(1),
+        .hamburger-active .line:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .hamburger-active .line:nth-child(1) {
+            transform: translateY(12px);
+        }
+
+        .hamburger-active .line:nth-child(3) {
+            transform: translateY(-5px) rotate(90deg);
+        }
+
+        .menubar {
+            position: absolute;
+            top: 0;
+            left: -60%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 60%;
+            height: 100vh;
+            padding: 20% 0;
+            background: rgba(255, 255, 255);
+            transition: all 0.5s ease-in;
+            z-index: 2;
+        }
+
+        .active {
+            left: 0;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+
+        .menubar ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        .menubar ul li {
+            margin-bottom: 32px;
+        }
+
+        .menubar ul li a {
+            text-decoration: none;
+            color: #000;
+            font-size: 95%;
+            font-weight: 400;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .menubar ul li a:hover {
+            background-color: #f5f5f5;
+        }
+
+
+        .hero {
+            position: relative;
+            height: 70vh;
+            background-image: url("mantop.jpeg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            color: white;
+            text-align: center;
+            z-index: 1;
+            padding: 0 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3.4rem;
+           
+            padding: 15px;
+
+        }
+
+        .hero-content h2 {
+            font-size: 2rem;
+
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 20px auto 30px auto;
+        }
+
+        .hero-content button {
+            padding: 12px 35px;
+            font-size: 1rem;
+            background-color: #323cff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-content button:hover {
+            background-color: #160787;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---------- Product Grid Section ---------- */
+        .products-section {
+            padding: 50px 30px;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .products-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            color: #333;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card p {
+            margin: 15px 10px;
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .product-card button {
+            margin-bottom: 15px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #ff9900;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card button:hover {
+            background-color: #e68a00;
+        }
+
+        .footer {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 40px 20px 10px;
+            font-family: 'Segoe UI', sans-serif;
+          }
+        
+          .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+          }
+        
+          .footer h2, .footer h3 {
+            color: #ff9900;
+            margin-bottom: 15px;
+          }
+        
+          .footer-section p, .footer-section ul {
+            font-size: 0.95rem;
+            line-height: 1.6;
+          }
+        
+          .footer-section ul {
+            list-style: none;
+            padding: 0;
+          }
+        
+          .footer-section ul li {
+            margin-bottom: 10px;
+          }
+        
+          .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+          }
+        
+          .footer-section ul li a:hover {
+            color: #ff9900;
+          }
+        
+          .social-icons a img {
+            width: 28px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+          }
+        
+          .social-icons a:hover img {
+            transform: scale(1.1);
+          }
+        
+          .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+          }
+
+          button{
+            cursor: pointer;
+          }
+
+        @media screen and (max-width: 790px) {
+            .hamburger {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="logo" />
+            <h1>AmiCart</h1>
+        </div>
+        <ul>
+            <li>
+                <a href="/index.html">Home</a>
+            </li>
+            <li>
+                <a href="/index.html">About</a>
+            </li>
+            <li>
+                <a href="/shoping/shop.html">Shoping</a>
+            </li>
+            <li>
+                <a href="/shoping/cart.html">Your Cart</a>
+            </li>
+            <li>
+                <a href="/contact/contact.html">Contact Us</a>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </nav>
+    <div class="menubar">
+        <ul>
+            <li>
+                <a href="/index.html">Home</a>
+            </li>
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+            <li>
+                <a href="/shoping/cart.html">Your Cart</a>
+            </li>
+            <li>
+                <a href="/shoping/shop.html">Shoping</a>
+            </li>
+
+            <li>
+                <a href="/contact/contact.html">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h2>Best Man Products at Your Fingertips</h2>
+            <h1>Welcome to Our Store</h1>
+
+            <p>Explore a wide range of high-quality items delivered straight to your doorstep. Join millions of happy
+                customers today!</p>
+            <button>Shop Now</button>
+        </div>
+    </section>
+
+
+
+    <!-- ✅ PRODUCT GRID SECTION -->
+    <section class="products-section">
+        <h2>Latest Men's Collection</h2>
+        <div class="products-grid">
+
+            <!-- 1 -->
+            <div class="product-card">
+                <img src="c/m1.jpeg" alt="Men Product 1">
+                <p>Classic Denim Jacket</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 2 -->
+            <div class="product-card">
+                <img src="c/m2.jpeg" alt="Men Product 2">
+                <p>Premium Leather Shoes</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 3 -->
+            <div class="product-card">
+                <img src="c/m3.jpeg" alt="Men Product 3">
+                <p>White Formal Shirt</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 4 -->
+            <div class="product-card">
+                <img src="c/m4.jpeg" alt="Men Product 4">
+                <p>Comfort Jogger Pants</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 5 -->
+            <div class="product-card">
+                <img src="c/m5.jpeg" alt="Men Product 5">
+                <p>Stylish Sunglasses</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 6 -->
+            <div class="product-card">
+                <img src="c/m6.jpeg" alt="Men Product 6">
+                <p>Men's Wrist Watch</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 7 -->
+            <div class="product-card">
+                <img src="c/m7.jpeg" alt="Men Product 7">
+                <p>Running Sports Shoes</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 8 -->
+            <div class="product-card">
+                <img src="c/m8.jpeg" alt="Men Product 8">
+                <p>Casual Hoodie</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 9 -->
+            <div class="product-card">
+                <img src="c/m9.jpeg" alt="Men Product 9">
+                <p>Baseball Cap</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 10 -->
+            <div class="product-card">
+                <img src="c/m10.jpeg" alt="Men Product 10">
+                <p>Leather Wallet</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 11 -->
+            <div class="product-card">
+                <img src="c/m11.jpeg" alt="Men Product 11">
+                <p>Formal Suit Set</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 12 -->
+            <div class="product-card">
+                <img src="c/m12.jpeg" alt="Men Product 12">
+                <p>Dark Blue Jeans</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 13 -->
+            <div class="product-card">
+                <img src="c/m13.jpeg" alt="Men Product 13">
+                <p>Classic Polo T-Shirt</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 14 -->
+            <div class="product-card">
+                <img src="c/m14.jpeg" alt="Men Product 14">
+                <p>Leather Belt</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 15 -->
+            <div class="product-card">
+                <img src="c/m15.jpeg" alt="Men Product 15">
+                <p>Everyday Sneakers</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 16 -->
+            <div class="product-card">
+                <img src="c/m16.jpeg" alt="Men Product 16">
+                <p>Silk Neck Tie</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 17 -->
+            <div class="product-card">
+                <img src="c/m17.jpeg" alt="Men Product 17">
+                <p>Track Pants</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 18 -->
+            <div class="product-card">
+                <img src="c/m18.jpeg" alt="Men Product 18">
+                <p>Traditional Kurta</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 19 -->
+            <div class="product-card">
+                <img src="c/m19.jpeg" alt="Men Product 19">
+                <p>Winter Bomber Jacket</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 20 -->
+            <div class="product-card">
+                <img src="c/m20.jpeg" alt="Men Product 20">
+                <p>Checked Shirt</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 21 -->
+            <div class="product-card">
+                <img src="c/m21.jpeg" alt="Men Product 21">
+                <p>Blazer Coat</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 22 -->
+            <div class="product-card">
+                <img src="c/m22.jpeg" alt="Men Product 22">
+                <p>Suede Loafers</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 23 -->
+            <div class="product-card">
+                <img src="c/m23.jpeg" alt="Men Product 23">
+                <p>Ethnic Kurta Set</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 24 -->
+            <div class="product-card">
+                <img src="c/m24.jpeg" alt="Men Product 24">
+                <p>Printed T-Shirt</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 25 -->
+            <div class="product-card">
+                <img src="c/m25.jpeg" alt="Men Product 25">
+                <p>Casual Shorts</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 26 -->
+            <div class="product-card">
+                <img src="c/m26.jpeg" alt="Men Product 26">
+                <p>Beach Flip Flops</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 27 -->
+            <div class="product-card">
+                <img src="c/m27.jpeg" alt="Men Product 27">
+                <p>Winter Scarf</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 28 -->
+            <div class="product-card">
+                <img src="c/m28.jpeg" alt="Men Product 28">
+                <p>Leather Backpack</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 29 -->
+            <div class="product-card">
+                <img src="c/m29.jpeg" alt="Men Product 29">
+                <p>Luxury Perfume</p>
+                <button>Shop Now</button>
+            </div>
+
+            <!-- 30 -->
+            <div class="product-card">
+                <img src="c/m30.jpeg" alt="Men Product 30">
+                <p>Fitness Gym Set</p>
+                <button>Shop Now</button>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- ✅ FOOTER START -->
+<footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section brand">
+        <h2>AmiCart</h2>
+        <p>Your one-stop shop for everything you love.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quo laboriosam odio eveniet enim id mollitia ipsa quam odit. Dolore consequuntur laudantium repudiandae dolores vel praesentium atque consequatur magni. Ad?</p>
+      </div>
+  
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-section social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111393.png" alt="Instagram" /></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" /></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" /></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" /></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 ShopEase. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- ✅ FOOTER END -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | YourShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    /* ===== Section 1 ===== */
+    .hero {
+      height: 100vh;
+      background: url('images/bg1.jpg') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      height: 60vh;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #0d6efd;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #084ec1;
+    }
+
+    /* ===== Section 2 & 3 ===== */
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 60px 20px;
+      align-items: center;
+      gap: 40px;
+      width: 90%;
+      margin: auto;
+    }
+
+    .section:nth-child(even) {
+      flex-direction: row-reverse;
+      background: #f9f9f9;
+    }
+
+    .section-img {
+      flex: 1 1 400px;
+    }
+
+    .section-img img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-content {
+      flex: 1 1 400px;
+    }
+
+    .section-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .section-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #0d6efd;
+    }
+
+    .section-content p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      color: #444;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+        background-color: #222;
+        color: #ddd;
+        padding: 40px 20px 10px;
+        font-family: 'Segoe UI', sans-serif;
+      }
+      
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: auto;
+      }
+      
+      .footer-column {
+        flex: 1 1 220px;
+        margin: 20px;
+      }
+      
+      .footer-column h3 {
+        color: #fff;
+        margin-bottom: 15px;
+      }
+      
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+      }
+      
+      .footer-column ul li {
+        margin-bottom: 10px;
+      }
+      
+      .footer-column ul li a {
+        color: #bbb;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      
+      .footer-column ul li a:hover {
+        color: #fff;
+      }
+      
+      .footer-column p {
+        margin-bottom: 10px;
+        line-height: 1.6;
+      }
+      
+      .social-icons a {
+        display: inline-block;
+        margin-right: 10px;
+      }
+      
+      .social-icons img {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0.8);
+        transition: filter 0.3s ease;
+      }
+      
+      .social-icons img:hover {
+        filter: brightness(1.2);
+      }
+      
+      .footer-bottom {
+        text-align: center;
+        border-top: 1px solid #444;
+        margin-top: 30px;
+        padding-top: 10px;
+        font-size: 14px;
+      }
+      
+      
+      
+      
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column !important;
+        text-align: center;
+      }
+
+      .section-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Section 1: Hero with background image and overlay -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to AmiCart</h1>
+      <p>Discover the best products at unbeatable prices. We bring quality and care to your doorstep.</p>
+      <a href="shoping/shop.html" class="btn">Shop Know</a>
+    </div>
+  </section>
+
+  <!-- Section 2: Image Left, Text Right -->
+  <section class="section" id="about">
+    <div class="section-img">
+      <img src="Images/ab1.jpg" alt="Our Story">
+    </div>
+    <div class="section-content">
+      <h1>Who We Are</h1>
+      <h2>Born to Serve Shoppers</h2>
+      <p>Since 2022, YourShop has grown from a small team to a leading platform that puts your needs first. We curate the best products and deliver them with love and reliability.</p>
+      <a href="#" class="btn">Read More</a>
+    </div>
+  </section>
+
+  <!-- Section 3: Image Right, Text Left -->
+  <section class="section">
+    <div class="section-img">
+      <img src="Images/ms1.jpg" alt="Our Mission">
+    </div>
+    <div class="section-content">
+      <h1>Our Mission</h1>
+      <h2>Passion Meets Purpose</h2>
+      <p>We aim to make shopping easier, faster, and more joyful. With innovative service and trusted partnerships, we turn clicks into smiles every single day.</p>
+      <a href="#" class="btn">Join Us</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- About -->
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <p>Your one-stop shop for all your needs. We offer the best products at unbeatable prices!</p>
+      </div>
+  
+      <!-- Categories -->
+      <div class="footer-column">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="#">Electronics</a></li>
+          <li><a href="#">Fashion</a></li>
+          <li><a href="#">Home & Kitchen</a></li>
+          <li><a href="#">Beauty</a></li>
+          <li><a href="#">Sports</a></li>
+        </ul>
+      </div>
+  
+      <!-- Useful Links -->
+      <div class="footer-column">
+        <h3>Useful Links</h3>
+        <ul>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Order Tracking</a></li>
+          <li><a href="#">Wishlist</a></li>
+          <li><a href="#">Customer Service</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+  
+      <!-- Contact -->
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p>Email: support@yourshop.com</p>
+        <p>Phone: +1 234 567 890</p>
+        <div class="social-icons">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Twitter"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733614.png" alt="Instagram"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="LinkedIn"></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 AMICART. All rights reserved by Aryan Verma.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
